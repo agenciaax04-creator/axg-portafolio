@@ -1,0 +1,177 @@
+/**
+ * Hero - Agencia AX
+ *
+ * Reglas aplicadas:
+ *  - Ocupa exactamente 100vh (con fallback a 100svh para móviles modernos).
+ *  - Sin scroll vertical innecesario: contenido centrado y compacto.
+ *  - Mobile-first: tamaños tipográficos escalan con breakpoints.
+ *  - Cero fade-out al hacer scroll: todos los elementos son 100% sólidos.
+ *  - Acento dorado #D59F0F en CTA y destellos sutiles.
+ */
+export default function Hero() {
+  return (
+    <section
+      id="top"
+      className="
+        relative w-full
+        h-screen min-h-[100svh]
+        flex items-center justify-center
+        overflow-hidden
+        px-5 sm:px-8
+      "
+      aria-label="Presentación de Agencia AX"
+    >
+      {/* Halo dorado sutil detrás del título (sólido, sin animación de desaparición) */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute
+          left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+          h-[60vmin] w-[60vmin]
+          rounded-full
+          bg-[radial-gradient(circle_at_center,rgba(213,159,15,0.18),transparent_60%)]
+        "
+      />
+
+      <div className="relative z-10 mx-auto w-full max-w-5xl text-center">
+        {/* Eyebrow */}
+        <p
+          className="
+            inline-flex items-center gap-2
+            text-[11px] sm:text-xs
+            uppercase tracking-[0.28em]
+            text-ax-gold
+            border border-ax-gold/30
+            rounded-full
+            px-3 py-1
+            bg-ax-blue/30
+          "
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-ax-gold shadow-goldGlow" />
+          Agencia AX · Desarrollo a medida
+        </p>
+
+        {/* Titular */}
+        <h1
+          className="
+            mt-6 sm:mt-8
+            font-display
+            tracking-tightest
+            text-4xl sm:text-6xl lg:text-7xl
+            font-semibold
+            leading-[1.05]
+            text-white
+          "
+        >
+          Transformamos negocios
+          <br className="hidden sm:block" />{" "}
+          con{" "}
+          <span className="relative inline-block">
+            <span className="relative z-10 text-ax-gold">código a medida</span>
+            <span
+              aria-hidden="true"
+              className="absolute inset-x-0 bottom-1 h-[6px] bg-ax-gold/25 rounded-sm"
+            />
+          </span>
+          .
+        </h1>
+
+        {/* Subtítulo */}
+        <p
+          className="
+            mx-auto mt-5 sm:mt-7
+            max-w-2xl
+            text-base sm:text-lg
+            text-white/75
+            leading-relaxed
+          "
+        >
+          Diseño high-end, e-commerce de alto rendimiento y aplicaciones
+          escalables. Construimos productos digitales rápidos, sólidos y
+          memorables.
+        </p>
+
+        {/* CTAs */}
+        <div
+          className="
+            mt-8 sm:mt-10
+            flex flex-col sm:flex-row
+            items-stretch sm:items-center justify-center
+            gap-3 sm:gap-4
+          "
+        >
+          <a
+            href="#contacto"
+            className="
+              inline-flex items-center justify-center
+              h-12 px-7
+              rounded-full
+              text-sm sm:text-base font-medium
+              bg-ax-gold text-ax-void
+              hover:bg-ax-goldSoft
+              shadow-goldGlow
+              transition-colors
+            "
+          >
+            Solicitar cotización
+          </a>
+          <a
+            href="#proyectos"
+            className="
+              inline-flex items-center justify-center
+              h-12 px-7
+              rounded-full
+              text-sm sm:text-base font-medium
+              text-white
+              border border-white/15
+              bg-white/[0.03]
+              hover:bg-white/[0.06] hover:border-white/25
+              transition-colors
+            "
+          >
+            Ver proyectos
+          </a>
+        </div>
+
+        {/* Métricas / prueba social mínima */}
+        <div
+          className="
+            mt-12 sm:mt-16
+            grid grid-cols-3
+            max-w-xl mx-auto
+            divide-x divide-white/10
+            border-y border-white/10
+          "
+        >
+          {[
+            { k: "+50", v: "Proyectos" },
+            { k: "100%", v: "A medida" },
+            { k: "<1s", v: "Tiempo de carga" },
+          ].map((m) => (
+            <div key={m.v} className="py-4 px-2">
+              <div className="text-xl sm:text-2xl font-semibold text-white">
+                {m.k}
+              </div>
+              <div className="text-[11px] sm:text-xs uppercase tracking-widest text-white/55">
+                {m.v}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Indicador de scroll (sólido, sin desvanecimiento) */}
+      <div
+        aria-hidden="true"
+        className="
+          absolute bottom-6 left-1/2 -translate-x-1/2
+          flex flex-col items-center gap-2
+          text-white/55
+        "
+      >
+        <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+        <span className="h-8 w-px bg-ax-gold/70" />
+      </div>
+    </section>
+  );
+}

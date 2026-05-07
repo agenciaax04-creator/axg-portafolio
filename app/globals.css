@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   Agencia AX - Estilos globales
+   - Dark mode profundo tipo galaxia
+   - Cero fade-out al hacer scroll: todo permanece 100% sólido
+   ========================================================= */
+
+:root {
+  --ax-void: #05070d;
+  --ax-deep: #0a0f1f;
+  --ax-gold: #D59F0F;
+  --ax-blue: #003D64;
+  --ax-blue-hi: #2B338C;
+}
+
+html,
+body {
+  background-color: var(--ax-void);
+  color: #EDEFF5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Capa de "galaxia" fija detrás del contenido.
+   Se mantiene sólida en todo momento (sin fade-out al scroll). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(1200px 700px at 15% -10%, rgba(43, 51, 140, 0.28), transparent 60%),
+    radial-gradient(900px 600px at 90% 10%, rgba(0, 61, 100, 0.32), transparent 65%),
+    radial-gradient(700px 500px at 50% 110%, rgba(43, 51, 140, 0.20), transparent 60%),
+    linear-gradient(180deg, #05070d 0%, #0a0f1f 60%, #05070d 100%);
+  pointer-events: none;
+}
+
+/* Estrellas sutiles (puntos finos) - 100% sólidas, sin animación de desaparición */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(255, 255, 255, 0.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 78% 14%, rgba(255, 255, 255, 0.45) 50%, transparent 51%),
+    radial-gradient(1px 1px at 35% 68%, rgba(255, 255, 255, 0.40) 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 78%, rgba(255, 255, 255, 0.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 22% 88%, rgba(255, 255, 255, 0.35) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 60% 32%, rgba(255, 255, 255, 0.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 48% 8%, rgba(255, 255, 255, 0.40) 50%, transparent 51%),
+    radial-gradient(1px 1px at 5% 55%, rgba(255, 255, 255, 0.40) 50%, transparent 51%);
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* ---------- Anti fade-out ----------
+   Eliminamos cualquier mascara/desvanecimiento por scroll.
+   Los elementos NUNCA se desvanecen al deslizar. */
+* {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar discreta acorde al branding */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #05070d;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a2240;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2B338C;
+}
+
+/* Selección de texto */
+::selection {
+  background: rgba(213, 159, 15, 0.35);
+  color: #fff;
+}
+
+/* Utilidad: línea hairline dorada */
+.ax-hairline {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(213, 159, 15, 0.0) 0%,
+    rgba(213, 159, 15, 0.55) 50%,
+    rgba(213, 159, 15, 0.0) 100%
+  );
+  height: 1px;
+  width: 100%;
+}
