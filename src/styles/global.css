@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* =========================================================
-   Agencia AX - Estilos globales
+   Agencia AX - Estilos globales (Astro + Tailwind)
    - Dark mode profundo tipo galaxia
    - Cero fade-out al hacer scroll: todo permanece 100% sólido
    ========================================================= */
@@ -25,8 +25,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Capa de "galaxia" fija detrás del contenido.
-   Se mantiene sólida en todo momento (sin fade-out al scroll). */
+/* Capa de "galaxia" fija detrás del contenido. 100% sólida. */
 body::before {
   content: "";
   position: fixed;
@@ -40,7 +39,7 @@ body::before {
   pointer-events: none;
 }
 
-/* Estrellas sutiles (puntos finos) - 100% sólidas, sin animación de desaparición */
+/* Estrellas finas, sólidas, sin animación de desaparición */
 body::after {
   content: "";
   position: fixed;
@@ -60,8 +59,7 @@ body::after {
 }
 
 /* ---------- Anti fade-out ----------
-   Eliminamos cualquier mascara/desvanecimiento por scroll.
-   Los elementos NUNCA se desvanecen al deslizar. */
+   Anula cualquier mascara/desvanecimiento por scroll. */
 * {
   -webkit-mask-image: none !important;
   mask-image: none !important;
@@ -71,7 +69,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Scrollbar discreta acorde al branding */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -87,20 +84,17 @@ html {
   background: #2B338C;
 }
 
-/* Selección de texto */
 ::selection {
   background: rgba(213, 159, 15, 0.35);
   color: #fff;
 }
 
-/* Utilidad: línea hairline dorada */
 .ax-hairline {
   background: linear-gradient(
     90deg,
-    transparent 0%,
-    rgba(213, 159, 15, 0.0) 0%,
+    rgba(213, 159, 15, 0) 0%,
     rgba(213, 159, 15, 0.55) 50%,
-    rgba(213, 159, 15, 0.0) 100%
+    rgba(213, 159, 15, 0) 100%
   );
   height: 1px;
   width: 100%;

@@ -1,8 +1,13 @@
 node_modules
-.next
-out
 dist
+.astro
+.vercel
 .env
 .env.local
+.env.development.local
+.env.production.local
 .DS_Store
 *.log
+# Legacy Next.js artifacts (proyecto migrado a Astro)
+.next
+out

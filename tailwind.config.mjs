@@ -1,22 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./app/**/*.{js,jsx,ts,tsx}",
-    "./components/**/*.{js,jsx,ts,tsx}",
-  ],
+export default {
+  content: ["./src/**/*.{astro,html,js,jsx,ts,tsx,md,mdx}"],
   theme: {
     extend: {
       colors: {
-        // Paleta de marca Agencia AX
         ax: {
-          // Fondo profundo tipo galaxia
           void: "#05070d",
           deep: "#0a0f1f",
           space: "#0d1430",
-          // Acento dorado principal (CTA / destellos)
           gold: "#D59F0F",
           goldSoft: "#E8B838",
-          // Azules de marca
           blue: "#003D64",
           blueHi: "#2B338C",
         },
