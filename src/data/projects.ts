@@ -26,12 +26,17 @@ export const projects = [
     ],
   },
   {
-    slug: "dashboard-operativo",
-    title: "Dashboard Operativo",
-    category: "Aplicación web interna",
-    challenge: "El equipo gestionaba información crítica en hojas separadas, provocando errores y pérdida de tiempo operativo.",
-    solution: "Diseñamos una plataforma centralizada con vistas claras, indicadores clave y estructura escalable para nuevos módulos.",
-    result: "Reducción estimada del 45% en tiempo de gestión y mayor visibilidad para la toma de decisiones.",
+    slug: "punto-de-venta-abarrotes",
+    title: "Punto de Venta para Abarrotes",
+    category: "Aplicación web / operación comercial",
+    challenge: "Una tienda de abarrotes con más de 350 clientes al día necesitaba agilizar sus ventas, controlar tickets, registrar entradas y salidas de efectivo, y consultar información clave sin depender de procesos manuales o herramientas separadas.",
+    solution: "Creamos una aplicación de punto de venta con interfaz oscura, rápida y enfocada en operación diaria. Integramos venta por ticket, búsqueda de productos, cortes de caja, configuración administrativa, control de inventario y dashboard con métricas para monitorear el negocio.",
+    result: "El comercio obtuvo una herramienta centralizada para vender más rápido, reducir errores operativos y tener mayor visibilidad sobre ventas, productos, caja e indicadores clave del día.",
+    images: [
+      "/projects/pos-abarrotes-venta.png",
+      "/projects/pos-abarrotes-configuracion.png",
+      "/projects/pos-abarrotes-dashboard.png",
+    ],
   },
   {
     slug: "marca-digital-corporativa",
