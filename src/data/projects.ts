@@ -39,12 +39,17 @@ export const projects = [
     ],
   },
   {
-    slug: "marca-digital-corporativa",
-    title: "Marca Digital Corporativa",
-    category: "Sitio institucional",
-    challenge: "La empresa necesitaba proyectar autoridad digital, pero su sitio anterior no comunicaba experiencia ni diferenciación.",
-    solution: "Construimos una presencia web premium con narrativa estratégica, UI sobria y contenido orientado a conversión B2B.",
-    result: "Mayor percepción de valor, mejor tasa de contacto y una base sólida para campañas comerciales.",
+    slug: "deamsys-catalogo-industrial",
+    title: "DEAMSYS",
+    category: "Catálogo web / sector industrial",
+    challenge: "DEAMSYS necesitaba una presencia digital tipo catálogo para presentar equipos industriales, de medición y de seguridad a clientes de Villahermosa y Aguascalientes, sin manejar venta directa en línea, pero facilitando solicitudes de cotización claras y rápidas.",
+    solution: "Diseñamos y maquetamos una web estilo catálogo con navegación por productos y servicios, fichas visuales, llamadas a cotización y contacto directo. La experiencia se enfocó en transmitir confianza industrial, ordenar el portafolio y guiar al usuario hacia una solicitud comercial.",
+    result: "La empresa obtuvo una plataforma profesional para mostrar su oferta, atender prospectos regionales y convertir visitas en oportunidades de cotización sin depender de un e-commerce completo.",
+    images: [
+      "/projects/deamsys-industria.png",
+      "/projects/deamsys-catalogo.png",
+      "/projects/deamsys-contacto.png",
+    ],
   },
 ];
 
