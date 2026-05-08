@@ -16,9 +16,9 @@ export const projects = [
     slug: "easypdf",
     title: "EasyPDF",
     category: "Aplicación web / herramientas para documentos",
-    challenge: "Un colegio bachiller con más de 500 alumnos necesitaba una herramienta accesible para trabajar con documentos PDF y archivos de paquetería Office sin depender de instalaciones complejas, procesos dispersos o plataformas difíciles de usar.",
-    solution: "Desarrollamos EasyPDF como una plataforma web centralizada, rápida y segura, con herramientas para editar, organizar, convertir y gestionar documentos directamente desde el navegador, priorizando una interfaz clara para estudiantes, docentes y personal administrativo.",
-    result: "La institución obtuvo una solución práctica para agilizar tareas documentales, reducir fricción operativa y facilitar el acceso a herramientas digitales para una comunidad escolar amplia.",
+    challenge: "Un cliente buscaba crear una plataforma web de herramientas documentales que pudiera distribuirse a escuelas y colegios, facilitando el trabajo con PDFs y archivos de paquetería Office sin instalaciones complejas ni procesos técnicos para los usuarios finales.",
+    solution: "Desarrollamos EasyPDF como una plataforma centralizada, rápida y segura, con herramientas para editar, organizar, convertir y gestionar documentos directamente desde el navegador. La experiencia se diseñó para ser clara, escalable y fácil de adoptar por instituciones educativas.",
+    result: "El cliente obtuvo una solución lista para presentar y distribuir a escuelas y colegios, con una propuesta de valor clara para estudiantes, docentes y áreas administrativas que necesitan resolver tareas documentales de forma simple.",
     images: [
       "/projects/easypdf-tools.png",
       "/projects/easypdf-pricing.png",
