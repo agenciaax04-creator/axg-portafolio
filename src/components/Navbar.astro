@@ -54,28 +54,66 @@ const NAV_LINKS = [
       Cotizar
     </a>
 
-    <details class="relative lg:hidden">
-      <summary class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition-colors hover:bg-white/[0.08]" aria-label="Abrir menú">
+    <button type="button" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition-colors hover:bg-white/[0.08] lg:hidden" aria-label="Abrir menú" data-mobile-menu-open>
         <span class="sr-only">Abrir menú</span>
         <span class="flex flex-col gap-1.5">
           <span class="block h-0.5 w-5 rounded-full bg-white"></span>
           <span class="block h-0.5 w-5 rounded-full bg-white"></span>
           <span class="block h-0.5 w-5 rounded-full bg-white"></span>
         </span>
-      </summary>
+    </button>
 
-      <div class="absolute right-0 mt-3 w-56 overflow-hidden rounded-2xl border border-white/10 bg-ax-void/95 p-2 shadow-2xl backdrop-blur-xl">
+    <div class="fixed inset-0 z-[60] hidden bg-ax-void/40 backdrop-blur-md lg:hidden" data-mobile-menu-overlay>
+      <aside class="absolute right-0 top-0 h-full w-[82vw] max-w-sm overflow-hidden border-l border-white/10 bg-ax-void shadow-2xl">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_25%_15%,rgba(213,159,15,0.18),transparent_28%),radial-gradient(circle_at_80%_35%,rgba(244,200,74,0.12),transparent_24%),linear-gradient(180deg,rgba(0,61,100,0.28),rgba(5,7,13,0.98))]"></div>
+        <div class="flex items-center justify-between border-b border-white/10 p-5">
+          <span class="font-display text-lg font-semibold">
+            Agencia <span class="text-ax-gold">AX</span>
+          </span>
+          <button type="button" class="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-xl text-white" aria-label="Cerrar menú" data-mobile-menu-close>
+            ×
+          </button>
+        </div>
+        <div class="grid gap-2 p-5">
         {
           NAV_LINKS.map((l) => (
             <a
               href={l.href}
-              class="block rounded-xl px-4 py-3 text-sm text-white/75 transition-colors hover:bg-white/[0.06] hover:text-white"
+              class="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-base text-white/80 transition-colors hover:bg-white/[0.08] hover:text-white"
             >
               {l.label}
             </a>
           ))
         }
-      </div>
-    </details>
+        </div>
+      </aside>
+    </div>
   </nav>
 </header>
+
+<script>
+  const openButton = document.querySelector("[data-mobile-menu-open]");
+  const closeButton = document.querySelector("[data-mobile-menu-close]");
+  const overlay = document.querySelector("[data-mobile-menu-overlay]");
+  const panel = overlay?.querySelector("aside");
+
+  const openMenu = () => {
+    overlay?.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeMenu = () => {
+    overlay?.classList.add("hidden");
+    document.body.style.overflow = "";
+  };
+
+  openButton?.addEventListener("click", openMenu);
+  closeButton?.addEventListener("click", closeMenu);
+  overlay?.addEventListener("click", (event) => {
+    if (event.target === overlay) closeMenu();
+  });
+  panel?.addEventListener("click", (event) => event.stopPropagation());
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+</script>
