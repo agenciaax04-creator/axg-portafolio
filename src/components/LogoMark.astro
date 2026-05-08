@@ -1,40 +1,28 @@
 ---
-/**
- * LogoMark - Placeholder del isotipo de Agencia AX.
- * Cuadrado centrado con buena respiración, listo para alojar el isotipo
- * definitivo con letras "A" y "X" entrelazadas.
- *
- * Cuando tengas el SVG final, reemplaza el contenido <svg> interno
- * o usa <img src="/logo.svg" alt="Agencia AX" />.
- */
 interface Props {
   class?: string;
+  imageClass?: string;
 }
 
-const { class: className = "h-10 w-10" } = Astro.props;
+const {
+  class: className = "h-10 w-10",
+  imageClass = "h-[78%] w-[78%]",
+} = Astro.props;
 ---
 
 <span
   class:list={[
-    "relative inline-flex items-center justify-center rounded-xl bg-ax-blue/60 ring-1 ring-ax-gold/40 shadow-goldGlow",
+    "relative inline-flex items-center justify-center overflow-hidden rounded-xl bg-ax-blue/60 ring-1 ring-ax-gold/45 shadow-goldGlow",
     className,
   ]}
-  aria-hidden="true"
 >
-  <svg
-    viewBox="0 0 48 48"
-    class="h-[68%] w-[68%]"
-    fill="none"
-    stroke="#D59F0F"
-    stroke-width="2.4"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <!-- "A" -->
-    <path d="M10 38 L20 10 L30 38" />
-    <path d="M14 28 L26 28" />
-    <!-- "X" entrelazada -->
-    <path d="M22 14 L40 38" />
-    <path d="M40 14 L22 38" />
-  </svg>
+  <img
+    src="/logo-ax.png"
+    alt="Agencia AX"
+    width="512"
+    height="512"
+    loading="eager"
+    decoding="async"
+    class:list={["object-contain", imageClass]}
+  />
 </span>
