@@ -28,6 +28,7 @@ body {
 body {
   position: relative;
   isolation: isolate;
+  min-height: 100%;
 }
 
 /* Capa de "galaxia" fija detrás del contenido. 100% sólida. */
@@ -127,18 +128,19 @@ html {
   position: absolute;
   display: block;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, #F4C84A 0 35%, rgba(213, 159, 15, 0.72) 36% 58%, transparent 59%);
+  background: #F4C84A;
   filter: drop-shadow(0 0 7px rgba(213, 159, 15, 0.72));
   opacity: 0;
+  clip-path: polygon(50% 0%, 58% 38%, 100% 50%, 58% 62%, 50% 100%, 42% 62%, 0% 50%, 42% 38%);
   animation: ax-sparkle-cycle 8s ease-in-out infinite;
 }
 
 .ax-sparkle::before {
   content: "";
   position: absolute;
-  inset: -260%;
+  inset: 32%;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(213, 159, 15, 0.28), transparent 62%);
+  background: #fff2a8;
 }
 
 .ax-sparkle::after {
@@ -146,21 +148,18 @@ html {
 }
 
 .ax-sparkle-lg {
-  width: 6px;
-  height: 6px;
-  border-radius: 2px;
+  width: 15px;
+  height: 15px;
 }
 
 .ax-sparkle-md {
-  width: 5px;
-  height: 5px;
-  border-radius: 2px;
+  width: 12px;
+  height: 12px;
 }
 
 .ax-sparkle-sm {
-  width: 4px;
-  height: 4px;
-  border-radius: 1.5px;
+  width: 9px;
+  height: 9px;
 }
 
 .ax-sparkle:nth-child(2) {
