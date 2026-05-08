@@ -40,7 +40,7 @@ const [mainImage, secondImage, thirdImage] = project.images ?? [];
               <img
                 src={mainImage}
                 alt={`${project.title} - captura principal`}
-                class="aspect-[16/10] w-full rounded-3xl border border-white/10 object-cover"
+                class="w-full rounded-3xl border border-white/10 bg-white object-contain"
                 loading="eager"
               />
             ) : (
@@ -55,7 +55,7 @@ const [mainImage, secondImage, thirdImage] = project.images ?? [];
                 <img
                   src={secondImage}
                   alt={`${project.title} - menú`}
-                  class="aspect-[4/3] w-full rounded-2xl border border-white/10 object-cover"
+                  class="w-full rounded-2xl border border-white/10 bg-white object-contain"
                   loading="lazy"
                 />
               ) : (
@@ -69,7 +69,7 @@ const [mainImage, secondImage, thirdImage] = project.images ?? [];
                 <img
                   src={thirdImage}
                   alt={`${project.title} - ubicación`}
-                  class="aspect-[4/3] w-full rounded-2xl border border-white/10 object-cover"
+                  class="w-full rounded-2xl border border-white/10 bg-white object-contain"
                   loading="lazy"
                 />
               ) : (
