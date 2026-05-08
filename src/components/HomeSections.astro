@@ -1,0 +1,93 @@
+---
+const pillars = [
+  {
+    icon: "💡",
+    title: "Descubrimiento",
+    text: "Analizamos tu modelo de negocio para encontrar oportunidades reales de crecimiento digital.",
+  },
+  {
+    icon: "▣",
+    title: "Diseño UX/UI",
+    text: "Creamos interfaces sólidas que guían al usuario hacia la conversión de forma orgánica y estética.",
+  },
+  {
+    icon: "🚀",
+    title: "Optimización",
+    text: "Cuidamos el rendimiento para asegurar una experiencia rápida, estable y confiable en cualquier dispositivo.",
+  },
+];
+
+const tech = [
+  ["Astro / Frontend", "Avanzado"],
+  ["Tailwind CSS / UI", "Avanzado"],
+  ["Node.js / Backend", "Experto"],
+  ["E-commerce / Conversión", "Avanzado"],
+];
+---
+
+<section class="px-5 sm:px-8 py-20 sm:py-28">
+  <div class="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-black/35 p-6 sm:p-10 lg:p-14">
+    <h2 class="border-l-4 border-ax-gold pl-5 font-display text-3xl sm:text-5xl font-semibold tracking-tightest uppercase">
+      Pilares de la Confianza
+    </h2>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {pillars.map((pillar) => (
+        <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-8 text-center">
+          <div class="text-4xl text-ax-gold">{pillar.icon}</div>
+          <h3 class="mt-7 font-display text-xl font-semibold">{pillar.title}</h3>
+          <p class="mt-4 text-white/65 leading-relaxed">{pillar.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="px-5 sm:px-8 py-20 sm:py-28">
+  <div class="mx-auto max-w-7xl">
+    <h2 class="border-l-4 border-ax-gold pl-5 font-display text-3xl sm:text-5xl font-semibold tracking-tightest">
+      Excelencia Técnica
+    </h2>
+
+    <div class="mt-12 grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
+      <div class="overflow-hidden rounded-3xl border border-white/10">
+        <table class="w-full text-left text-sm sm:text-base">
+          <thead class="bg-white/[0.06] text-ax-gold">
+            <tr>
+              <th class="px-5 py-4 font-semibold">Tecnología</th>
+              <th class="px-5 py-4 font-semibold">Nivel de Dominio</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10 text-white/70">
+            {tech.map(([name, level]) => (
+              <tr>
+                <td class="px-5 py-4">{name}</td>
+                <td class="px-5 py-4 text-ax-gold">{level}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aspect-[16/10] rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_30%_20%,rgba(213,159,15,0.22),transparent_30%),linear-gradient(135deg,rgba(0,61,100,0.7),rgba(5,7,13,0.95))] p-8 grid place-items-center">
+        <div class="text-center">
+          <p class="text-xs uppercase tracking-[0.28em] text-ax-gold">Stack escalable</p>
+          <p class="mt-4 font-display text-3xl sm:text-4xl font-semibold">Velocidad, estabilidad y diseño premium.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="px-5 sm:px-8 py-20 sm:py-28">
+  <div class="mx-auto max-w-5xl text-center">
+    <h2 class="border-l-4 border-ax-gold pl-5 text-left font-display text-3xl sm:text-5xl font-semibold tracking-tightest">
+      La Voz de la Experiencia
+    </h2>
+
+    <blockquote class="mt-16 text-2xl sm:text-4xl italic leading-relaxed text-white/90">
+      “Agencia AX no solo diseñó nuestra web, transformó nuestra manera de vender online. Su visión estratégica es lo que los diferencia de cualquier otro estudio.”
+    </blockquote>
+    <p class="mt-8 text-white/55">— Director de Marketing, Tech Corp Global</p>
+  </div>
+</section>

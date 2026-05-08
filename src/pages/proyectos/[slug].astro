@@ -1,0 +1,67 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import { projects } from "@/data/projects";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.title} | Agencia AX`}>
+  <main class="relative min-h-screen pt-28 sm:pt-32 px-5 sm:px-8 pb-20">
+    <Navbar showHome />
+
+    <section class="mx-auto max-w-7xl">
+      <a href="/proyectos" class="inline-flex items-center text-sm text-ax-gold hover:text-ax-goldSoft transition-colors">
+        ← Volver a proyectos
+      </a>
+
+      <div class="mt-8 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div>
+          <p class="text-xs uppercase tracking-[0.28em] text-ax-gold">{project.title}</p>
+          <h1 class="mt-4 font-display text-4xl sm:text-6xl font-semibold tracking-tightest leading-tight">
+            Del Problema a la Solución
+          </h1>
+          <p class="mt-5 text-white/70 text-base sm:text-lg leading-relaxed">
+            Un caso de transformación digital enfocado en estrategia, experiencia de usuario y resultados comerciales.
+          </p>
+        </div>
+
+        <div class="grid gap-4">
+          <div class="aspect-[16/10] rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_30%_20%,rgba(213,159,15,0.20),transparent_32%),linear-gradient(135deg,rgba(0,61,100,0.72),rgba(5,7,13,0.95))] p-6 grid place-items-center">
+            <span class="text-sm uppercase tracking-[0.25em] text-white/55">Captura principal</span>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="aspect-[4/3] rounded-2xl border border-white/10 bg-white/[0.04] grid place-items-center">
+              <span class="text-xs uppercase tracking-[0.22em] text-white/40">Pantalla 01</span>
+            </div>
+            <div class="aspect-[4/3] rounded-2xl border border-white/10 bg-white/[0.04] grid place-items-center">
+              <span class="text-xs uppercase tracking-[0.22em] text-white/40">Pantalla 02</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-14 grid gap-5 md:grid-cols-3">
+        <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-8">
+          <p class="text-xs uppercase tracking-[0.25em] text-ax-gold">El Reto</p>
+          <p class="mt-5 text-white/70 leading-relaxed">{project.challenge}</p>
+        </article>
+        <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-8">
+          <p class="text-xs uppercase tracking-[0.25em] text-ax-gold">La Solución</p>
+          <p class="mt-5 text-white/70 leading-relaxed">{project.solution}</p>
+        </article>
+        <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-8">
+          <p class="text-xs uppercase tracking-[0.25em] text-ax-gold">El Resultado</p>
+          <p class="mt-5 text-white/70 leading-relaxed">{project.result}</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>
