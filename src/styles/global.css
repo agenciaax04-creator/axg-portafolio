@@ -51,12 +51,6 @@ body::after {
   inset: 0;
   z-index: -1;
   background-image:
-    linear-gradient(45deg, transparent 46%, rgba(213, 159, 15, 0.85) 48%, rgba(213, 159, 15, 0.85) 52%, transparent 54%),
-    linear-gradient(-45deg, transparent 46%, rgba(213, 159, 15, 0.85) 48%, rgba(213, 159, 15, 0.85) 52%, transparent 54%),
-    linear-gradient(45deg, transparent 47%, rgba(232, 184, 56, 0.7) 49%, rgba(232, 184, 56, 0.7) 51%, transparent 53%),
-    linear-gradient(-45deg, transparent 47%, rgba(232, 184, 56, 0.7) 49%, rgba(232, 184, 56, 0.7) 51%, transparent 53%),
-    linear-gradient(45deg, transparent 47%, rgba(213, 159, 15, 0.55) 49%, rgba(213, 159, 15, 0.55) 51%, transparent 53%),
-    linear-gradient(-45deg, transparent 47%, rgba(213, 159, 15, 0.55) 49%, rgba(213, 159, 15, 0.55) 51%, transparent 53%),
     radial-gradient(1px 1px at 12% 22%, rgba(255, 255, 255, 0.55) 50%, transparent 51%),
     radial-gradient(1px 1px at 78% 14%, rgba(255, 255, 255, 0.45) 50%, transparent 51%),
     radial-gradient(1px 1px at 35% 68%, rgba(255, 255, 255, 0.40) 50%, transparent 51%),
@@ -66,12 +60,6 @@ body::after {
     radial-gradient(1px 1px at 48% 8%, rgba(255, 255, 255, 0.40) 50%, transparent 51%),
     radial-gradient(1px 1px at 5% 55%, rgba(255, 255, 255, 0.40) 50%, transparent 51%);
   background-position:
-    18% 24%,
-    18% 24%,
-    82% 18%,
-    82% 18%,
-    72% 74%,
-    72% 74%,
     0 0,
     0 0,
     0 0,
@@ -81,12 +69,6 @@ body::after {
     0 0,
     0 0;
   background-size:
-    12px 12px,
-    12px 12px,
-    9px 9px,
-    9px 9px,
-    7px 7px,
-    7px 7px,
     auto,
     auto,
     auto,
@@ -141,40 +123,26 @@ html {
   width: 100%;
 }
 
-.ax-sparkle-field {
-  height: max(100%, 240vh);
-}
-
 .ax-sparkle {
   position: absolute;
   display: block;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, #F4C84A 0 22%, rgba(213, 159, 15, 0.95) 23% 42%, transparent 43%);
-  filter: drop-shadow(0 0 8px rgba(213, 159, 15, 0.65));
+  background: radial-gradient(circle, #F4C84A 0 35%, rgba(213, 159, 15, 0.72) 36% 58%, transparent 59%);
+  filter: drop-shadow(0 0 7px rgba(213, 159, 15, 0.72));
   opacity: 0;
   animation: ax-sparkle-cycle 8s ease-in-out infinite;
 }
 
-.ax-sparkle::before,
-.ax-sparkle::after {
+.ax-sparkle::before {
   content: "";
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(90deg, transparent 0%, rgba(213, 159, 15, 0.95) 42%, #F4C84A 50%, rgba(213, 159, 15, 0.95) 58%, transparent 100%);
+  inset: -260%;
   border-radius: 999px;
-}
-
-.ax-sparkle::before {
-  width: 320%;
-  height: 18%;
+  background: radial-gradient(circle, rgba(213, 159, 15, 0.28), transparent 62%);
 }
 
 .ax-sparkle::after {
-  width: 18%;
-  height: 320%;
-  background: linear-gradient(180deg, transparent 0%, rgba(213, 159, 15, 0.95) 42%, #F4C84A 50%, rgba(213, 159, 15, 0.95) 58%, transparent 100%);
+  content: none;
 }
 
 .ax-sparkle-lg {
@@ -237,6 +205,22 @@ html {
 
 .ax-sparkle:nth-child(12) {
   animation-delay: -6.5s;
+}
+
+.ax-sparkle:nth-child(13) {
+  animation-delay: -0.5s;
+}
+
+.ax-sparkle:nth-child(14) {
+  animation-delay: -3.5s;
+}
+
+.ax-sparkle:nth-child(15) {
+  animation-delay: -5.5s;
+}
+
+.ax-sparkle:nth-child(16) {
+  animation-delay: -7.5s;
 }
 
 @keyframes ax-sparkle-cycle {
