@@ -31,7 +31,7 @@ const NAV_LINKS = [
     </a>
 
     <!-- Enlaces (desktop) -->
-    <ul class="hidden md:flex items-center justify-center gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <ul class="hidden lg:flex items-center justify-center gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
       {
         NAV_LINKS.map((l) => (
           <li>
@@ -54,7 +54,7 @@ const NAV_LINKS = [
       Cotizar
     </a>
 
-    <button type="button" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition-colors hover:bg-white/[0.08] lg:hidden" aria-label="Abrir menú" data-mobile-menu-open>
+    <button type="button" id="mobile-menu-open" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition-colors hover:bg-white/[0.08] lg:hidden" aria-label="Abrir menú">
         <span class="sr-only">Abrir menú</span>
         <span class="flex flex-col gap-1.5">
           <span class="block h-0.5 w-5 rounded-full bg-white"></span>
@@ -63,14 +63,14 @@ const NAV_LINKS = [
         </span>
     </button>
 
-    <div class="fixed inset-0 z-[60] hidden bg-ax-void/40 backdrop-blur-md lg:hidden" data-mobile-menu-overlay>
-      <aside class="absolute right-0 top-0 h-full w-[82vw] max-w-sm overflow-hidden border-l border-white/10 bg-ax-void shadow-2xl">
+    <div id="mobile-menu-overlay" class="fixed inset-0 z-[60] hidden bg-ax-void/40 backdrop-blur-md lg:hidden">
+      <aside id="mobile-menu-panel" class="absolute right-0 top-0 h-full w-[82vw] max-w-sm overflow-hidden border-l border-white/10 bg-ax-void shadow-2xl">
         <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_25%_15%,rgba(213,159,15,0.18),transparent_28%),radial-gradient(circle_at_80%_35%,rgba(244,200,74,0.12),transparent_24%),linear-gradient(180deg,rgba(0,61,100,0.28),rgba(5,7,13,0.98))]"></div>
         <div class="flex items-center justify-between border-b border-white/10 p-5">
           <span class="font-display text-lg font-semibold">
             Agencia <span class="text-ax-gold">AX</span>
           </span>
-          <button type="button" class="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-xl text-white" aria-label="Cerrar menú" data-mobile-menu-close>
+          <button type="button" id="mobile-menu-close" class="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-xl text-white" aria-label="Cerrar menú">
             ×
           </button>
         </div>
@@ -91,11 +91,11 @@ const NAV_LINKS = [
   </nav>
 </header>
 
-<script>
-  const openButton = document.querySelector("[data-mobile-menu-open]");
-  const closeButton = document.querySelector("[data-mobile-menu-close]");
-  const overlay = document.querySelector("[data-mobile-menu-overlay]");
-  const panel = overlay?.querySelector("aside");
+<script is:inline>
+  const openButton = document.getElementById("mobile-menu-open");
+  const closeButton = document.getElementById("mobile-menu-close");
+  const overlay = document.getElementById("mobile-menu-overlay");
+  const panel = document.getElementById("mobile-menu-panel");
 
   const openMenu = () => {
     overlay?.classList.remove("hidden");
