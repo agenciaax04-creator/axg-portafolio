@@ -22,9 +22,20 @@ import { projects } from "@/data/projects";
       <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {projects.map((project) => (
           <a href={`/proyectos/${project.slug}`} class="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition-colors hover:border-ax-gold/45">
-            <div class="aspect-[4/3] bg-ax-blue/45 ring-1 ring-inset ring-ax-gold/15 grid place-items-center">
-              <span class="text-sm uppercase tracking-[0.25em] text-white/45">Caso</span>
-            </div>
+            {
+              project.images?.[0] ? (
+                <img
+                  src={project.images[0]}
+                  alt={`${project.title} - portada`}
+                  class="aspect-[4/3] w-full bg-white object-cover ring-1 ring-inset ring-ax-gold/15 transition-transform duration-300 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="aspect-[4/3] bg-ax-blue/45 ring-1 ring-inset ring-ax-gold/15 grid place-items-center">
+                  <span class="text-sm uppercase tracking-[0.25em] text-white/45">Caso</span>
+                </div>
+              )
+            }
             <div class="p-5">
               <h2 class="font-display text-xl font-semibold text-white">{project.title}</h2>
               <p class="mt-2 text-sm text-white/60">{project.category}</p>
