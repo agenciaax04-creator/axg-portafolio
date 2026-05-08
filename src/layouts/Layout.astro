@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import GoldSparkles from "@/components/GoldSparkles.astro";
 import WhatsAppButton from "@/components/WhatsAppButton.astro";
 
 interface Props {
@@ -37,6 +38,7 @@ const {
     />
   </head>
   <body class="font-sans antialiased text-white selection:bg-ax-gold/40">
+    <GoldSparkles />
     <slot />
     <WhatsAppButton />
   </body>
