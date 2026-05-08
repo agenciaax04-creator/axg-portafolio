@@ -25,6 +25,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+body {
+  position: relative;
+  isolation: isolate;
+}
+
 /* Capa de "galaxia" fija detrás del contenido. 100% sólida. */
 body::before {
   content: "";
@@ -136,13 +141,18 @@ html {
   width: 100%;
 }
 
+.ax-sparkle-field {
+  height: max(100%, 240vh);
+}
+
 .ax-sparkle {
   position: absolute;
   display: block;
   transform: translate(-50%, -50%) rotate(45deg);
   background: #D59F0F;
   box-shadow: 0 0 14px rgba(213, 159, 15, 0.75);
-  opacity: 0.9;
+  opacity: 0;
+  animation: ax-sparkle-cycle 8s ease-in-out infinite;
 }
 
 .ax-sparkle::before,
@@ -181,5 +191,55 @@ html {
   width: 4px;
   height: 4px;
   border-radius: 1.5px;
-  opacity: 0.78;
+}
+
+.ax-sparkle:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.ax-sparkle:nth-child(3) {
+  animation-delay: -2s;
+}
+
+.ax-sparkle:nth-child(4) {
+  animation-delay: -3s;
+}
+
+.ax-sparkle:nth-child(5) {
+  animation-delay: -4s;
+}
+
+.ax-sparkle:nth-child(6) {
+  animation-delay: -5s;
+}
+
+.ax-sparkle:nth-child(7) {
+  animation-delay: -6s;
+}
+
+.ax-sparkle:nth-child(8) {
+  animation-delay: -7s;
+}
+
+@keyframes ax-sparkle-cycle {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scale(0.6);
+  }
+  18% {
+    opacity: 0.95;
+    transform: translate(-42%, -58%) rotate(45deg) scale(1);
+  }
+  46% {
+    opacity: 0.55;
+    transform: translate(-58%, -46%) rotate(45deg) scale(0.82);
+  }
+  68% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scale(0.55);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scale(0.55);
+  }
 }
