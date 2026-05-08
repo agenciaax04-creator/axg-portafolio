@@ -11,6 +11,7 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const [mainImage, secondImage, thirdImage] = project.images ?? [];
 ---
 
 <Layout title={`${project.title} | Agencia AX`}>
@@ -34,16 +35,49 @@ const { project } = Astro.props;
         </div>
 
         <div class="grid gap-4">
-          <div class="aspect-[16/10] rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_30%_20%,rgba(213,159,15,0.20),transparent_32%),linear-gradient(135deg,rgba(0,61,100,0.72),rgba(5,7,13,0.95))] p-6 grid place-items-center">
-            <span class="text-sm uppercase tracking-[0.25em] text-white/55">Captura principal</span>
-          </div>
+          {
+            mainImage ? (
+              <img
+                src={mainImage}
+                alt={`${project.title} - captura principal`}
+                class="aspect-[16/10] w-full rounded-3xl border border-white/10 object-cover"
+                loading="eager"
+              />
+            ) : (
+              <div class="aspect-[16/10] rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_30%_20%,rgba(213,159,15,0.20),transparent_32%),linear-gradient(135deg,rgba(0,61,100,0.72),rgba(5,7,13,0.95))] p-6 grid place-items-center">
+                <span class="text-sm uppercase tracking-[0.25em] text-white/55">Captura principal</span>
+              </div>
+            )
+          }
           <div class="grid grid-cols-2 gap-4">
-            <div class="aspect-[4/3] rounded-2xl border border-white/10 bg-white/[0.04] grid place-items-center">
-              <span class="text-xs uppercase tracking-[0.22em] text-white/40">Pantalla 01</span>
-            </div>
-            <div class="aspect-[4/3] rounded-2xl border border-white/10 bg-white/[0.04] grid place-items-center">
-              <span class="text-xs uppercase tracking-[0.22em] text-white/40">Pantalla 02</span>
-            </div>
+            {
+              secondImage ? (
+                <img
+                  src={secondImage}
+                  alt={`${project.title} - menú`}
+                  class="aspect-[4/3] w-full rounded-2xl border border-white/10 object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="aspect-[4/3] rounded-2xl border border-white/10 bg-white/[0.04] grid place-items-center">
+                  <span class="text-xs uppercase tracking-[0.22em] text-white/40">Pantalla 01</span>
+                </div>
+              )
+            }
+            {
+              thirdImage ? (
+                <img
+                  src={thirdImage}
+                  alt={`${project.title} - ubicación`}
+                  class="aspect-[4/3] w-full rounded-2xl border border-white/10 object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="aspect-[4/3] rounded-2xl border border-white/10 bg-white/[0.04] grid place-items-center">
+                  <span class="text-xs uppercase tracking-[0.22em] text-white/40">Pantalla 02</span>
+                </div>
+              )
+            }
           </div>
         </div>
       </div>

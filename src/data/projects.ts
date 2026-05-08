@@ -1,11 +1,16 @@
 export const projects = [
   {
-    slug: "ecommerce-premium",
-    title: "E-commerce Premium",
-    category: "Tienda online / conversión",
-    challenge: "El cliente tenía una tienda lenta, con navegación confusa y abandono constante antes de finalizar la compra.",
-    solution: "Rediseñamos la arquitectura visual, simplificamos el flujo de compra y optimizamos la experiencia móvil para reducir fricción.",
-    result: "Incremento estimado del 38% en solicitudes de compra y una experiencia más rápida para usuarios recurrentes.",
+    slug: "cocina-dona-ana",
+    title: "Cocina Doña Ana",
+    category: "Diseño y maquetación / comercio local",
+    challenge: "El negocio necesitaba una presencia digital clara y atractiva para mostrar su propuesta casera, facilitar pedidos y comunicar ubicación, menú y contacto sin depender únicamente de mensajes manuales.",
+    solution: "Diseñamos y maquetamos una landing cálida, rápida y mobile-first, enfocada en antojitos, desayunos y comida local. La experiencia prioriza llamadas a la acción visibles, menú ordenado, ubicación destacada y contacto directo por WhatsApp.",
+    result: "La marca obtuvo una presentación digital más profesional, lista para compartir con clientes y convertir visitas en pedidos, llamadas o solicitudes por WhatsApp de forma más sencilla.",
+    images: [
+      "/projects/cocina-dona-ana-hero.png",
+      "/projects/cocina-dona-ana-menu.png",
+      "/projects/cocina-dona-ana-ubicacion.png",
+    ],
   },
   {
     slug: "landing-inmobiliaria",
