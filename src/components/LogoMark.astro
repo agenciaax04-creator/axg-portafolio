@@ -6,7 +6,7 @@ interface Props {
 
 const {
   class: className = "h-10 w-10",
-  imageClass = "h-[78%] w-[78%]",
+  imageClass = "h-[112%] w-[112%]",
 } = Astro.props;
 ---
 
@@ -23,6 +23,6 @@ const {
     height="512"
     loading="eager"
     decoding="async"
-    class:list={["object-contain", imageClass]}
+    class:list={["object-contain scale-125", imageClass]}
   />
 </span>

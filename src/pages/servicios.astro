@@ -1,0 +1,54 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+
+const services = [
+  {
+    title: "Diseño y Maquetación",
+    description:
+      "Interfaces premium, responsive y orientadas a conversión para que tu marca se vea sólida desde el primer segundo.",
+  },
+  {
+    title: "E-commerce",
+    description:
+      "Tiendas rápidas, claras y escalables con flujos de compra pensados para vender sin fricción.",
+  },
+  {
+    title: "Desarrollo de Apps",
+    description:
+      "Aplicaciones web a medida, dashboards y sistemas internos optimizados para crecer con tu operación.",
+  },
+];
+---
+
+<Layout title="Servicios | Agencia AX">
+  <main class="relative min-h-screen pt-28 sm:pt-32 px-5 sm:px-8 pb-20">
+    <Navbar showHome />
+
+    <section class="mx-auto max-w-7xl">
+      <a href="/" class="inline-flex items-center text-sm text-ax-gold hover:text-ax-goldSoft transition-colors">
+        ← Inicio
+      </a>
+
+      <div class="mt-8 max-w-3xl">
+        <p class="text-xs uppercase tracking-[0.28em] text-ax-gold">Servicios</p>
+        <h1 class="mt-4 font-display text-4xl sm:text-6xl font-semibold tracking-tightest leading-tight">
+          Soluciones digitales hechas para crecer.
+        </h1>
+        <p class="mt-5 text-white/70 text-base sm:text-lg leading-relaxed">
+          Creamos experiencias web high-end, rápidas y funcionales para negocios que necesitan una presencia digital profesional.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-5 md:grid-cols-3">
+        {services.map((service) => (
+          <article class="rounded-3xl border border-white/10 bg-ax-blue/35 p-6 sm:p-8 shadow-goldGlow">
+            <div class="h-10 w-10 rounded-full bg-ax-gold/15 ring-1 ring-ax-gold/35"></div>
+            <h2 class="mt-6 font-display text-2xl font-semibold text-white">{service.title}</h2>
+            <p class="mt-4 text-sm sm:text-base leading-relaxed text-white/68">{service.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

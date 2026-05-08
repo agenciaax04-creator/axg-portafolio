@@ -1,0 +1,42 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+
+const projects = ["Proyecto 01", "Proyecto 02", "Proyecto 03", "Proyecto 04"];
+---
+
+<Layout title="Proyectos | Agencia AX">
+  <main class="relative min-h-screen pt-28 sm:pt-32 px-5 sm:px-8 pb-20">
+    <Navbar showHome />
+
+    <section class="mx-auto max-w-7xl">
+      <a href="/" class="inline-flex items-center text-sm text-ax-gold hover:text-ax-goldSoft transition-colors">
+        ← Inicio
+      </a>
+
+      <div class="mt-8 max-w-3xl">
+        <p class="text-xs uppercase tracking-[0.28em] text-ax-gold">Proyectos</p>
+        <h1 class="mt-4 font-display text-4xl sm:text-6xl font-semibold tracking-tightest leading-tight">
+          Galería visual para trabajos de alto impacto.
+        </h1>
+        <p class="mt-5 text-white/70 text-base sm:text-lg leading-relaxed">
+          Espacios listos para capturas, mockups o previews de sitios web y aplicaciones creadas por Agencia AX.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {projects.map((project) => (
+          <article class="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
+            <div class="aspect-[4/3] bg-ax-blue/45 ring-1 ring-inset ring-ax-gold/15 grid place-items-center">
+              <span class="text-sm uppercase tracking-[0.25em] text-white/45">Captura</span>
+            </div>
+            <div class="p-5">
+              <h2 class="font-display text-xl font-semibold text-white">{project}</h2>
+              <p class="mt-2 text-sm text-white/60">Web premium / desarrollo a medida</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,60 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+---
+
+<Layout title="Contacto | Agencia AX">
+  <main class="relative min-h-screen pt-28 sm:pt-32 px-5 sm:px-8 pb-20">
+    <Navbar showHome />
+
+    <section class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div>
+        <a href="/" class="inline-flex items-center text-sm text-ax-gold hover:text-ax-goldSoft transition-colors">
+          ← Inicio
+        </a>
+
+        <div class="mt-8">
+          <p class="text-xs uppercase tracking-[0.28em] text-ax-gold">Contacto</p>
+          <h1 class="mt-4 font-display text-4xl sm:text-6xl font-semibold tracking-tightest leading-tight">
+            Cuéntanos qué quieres construir.
+          </h1>
+          <p class="mt-5 text-white/70 text-base sm:text-lg leading-relaxed">
+            Este formulario visual está preparado para cotizaciones de sitios web, e-commerce y aplicaciones a medida.
+          </p>
+        </div>
+      </div>
+
+      <form class="rounded-3xl border border-white/10 bg-ax-blue/30 p-5 sm:p-8 shadow-goldGlow">
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class="block">
+            <span class="text-sm text-white/70">Nombre</span>
+            <input class="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-ax-void/70 px-4 text-white outline-none transition-colors focus:border-ax-gold focus:ring-1 focus:ring-ax-gold" type="text" placeholder="Tu nombre" />
+          </label>
+          <label class="block">
+            <span class="text-sm text-white/70">Email</span>
+            <input class="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-ax-void/70 px-4 text-white outline-none transition-colors focus:border-ax-gold focus:ring-1 focus:ring-ax-gold" type="email" placeholder="correo@empresa.com" />
+          </label>
+        </div>
+
+        <label class="mt-5 block">
+          <span class="text-sm text-white/70">Tipo de proyecto</span>
+          <select class="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-ax-void/70 px-4 text-white outline-none transition-colors focus:border-ax-gold focus:ring-1 focus:ring-ax-gold">
+            <option>Diseño y maquetación</option>
+            <option>E-commerce</option>
+            <option>Desarrollo de app</option>
+            <option>Otro</option>
+          </select>
+        </label>
+
+        <label class="mt-5 block">
+          <span class="text-sm text-white/70">Mensaje</span>
+          <textarea class="mt-2 min-h-36 w-full rounded-2xl border border-white/10 bg-ax-void/70 px-4 py-3 text-white outline-none transition-colors focus:border-ax-gold focus:ring-1 focus:ring-ax-gold" placeholder="Describe brevemente tu idea"></textarea>
+        </label>
+
+        <button class="mt-6 inline-flex h-12 w-full items-center justify-center rounded-full bg-ax-gold px-7 text-sm font-semibold text-ax-void shadow-goldGlow transition-colors hover:bg-ax-goldSoft sm:w-auto" type="button">
+          Enviar solicitud
+        </button>
+      </form>
+    </section>
+  </main>
+</Layout>
