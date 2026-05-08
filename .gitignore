@@ -11,3 +11,5 @@ dist
 # Legacy Next.js artifacts (proyecto migrado a Astro)
 .next
 out
+
+.vercel
