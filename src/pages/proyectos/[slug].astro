@@ -12,6 +12,7 @@ export function getStaticPaths() {
 
 const { project } = Astro.props;
 const [mainImage, secondImage, thirdImage] = project.images ?? [];
+const galleryImages = project.images ?? [];
 ---
 
 <Layout title={`${project.title} | Agencia AX`}>
@@ -37,12 +38,14 @@ const [mainImage, secondImage, thirdImage] = project.images ?? [];
         <div class="grid gap-4">
           {
             mainImage ? (
-              <img
-                src={mainImage}
-                alt={`${project.title} - captura principal`}
-                class="w-full rounded-3xl border border-white/10 bg-white object-contain"
-                loading="eager"
-              />
+              <button type="button" class="group/image block w-full text-left" data-gallery-open data-gallery-index="0" aria-label={`Ver captura principal de ${project.title}`}>
+                <img
+                  src={mainImage}
+                  alt={`${project.title} - captura principal`}
+                  class="w-full rounded-3xl border border-white/10 bg-white object-contain transition-transform duration-300 group-hover/image:scale-[1.01]"
+                  loading="eager"
+                />
+              </button>
             ) : (
               <div class="aspect-[16/10] rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_30%_20%,rgba(213,159,15,0.20),transparent_32%),linear-gradient(135deg,rgba(0,61,100,0.72),rgba(5,7,13,0.95))] p-6 grid place-items-center">
                 <span class="text-sm uppercase tracking-[0.25em] text-white/55">Captura principal</span>
@@ -52,12 +55,14 @@ const [mainImage, secondImage, thirdImage] = project.images ?? [];
           <div class="grid grid-cols-2 gap-4">
             {
               secondImage ? (
-                <img
-                  src={secondImage}
-                  alt={`${project.title} - menú`}
-                  class="w-full rounded-2xl border border-white/10 bg-white object-contain"
-                  loading="lazy"
-                />
+                <button type="button" class="group/image block w-full text-left" data-gallery-open data-gallery-index="1" aria-label={`Ver segunda captura de ${project.title}`}>
+                  <img
+                    src={secondImage}
+                    alt={`${project.title} - menú`}
+                    class="w-full rounded-2xl border border-white/10 bg-white object-contain transition-transform duration-300 group-hover/image:scale-[1.01]"
+                    loading="lazy"
+                  />
+                </button>
               ) : (
                 <div class="aspect-[4/3] rounded-2xl border border-white/10 bg-white/[0.04] grid place-items-center">
                   <span class="text-xs uppercase tracking-[0.22em] text-white/40">Pantalla 01</span>
@@ -66,12 +71,14 @@ const [mainImage, secondImage, thirdImage] = project.images ?? [];
             }
             {
               thirdImage ? (
-                <img
-                  src={thirdImage}
-                  alt={`${project.title} - ubicación`}
-                  class="w-full rounded-2xl border border-white/10 bg-white object-contain"
-                  loading="lazy"
-                />
+                <button type="button" class="group/image block w-full text-left" data-gallery-open data-gallery-index="2" aria-label={`Ver tercera captura de ${project.title}`}>
+                  <img
+                    src={thirdImage}
+                    alt={`${project.title} - ubicación`}
+                    class="w-full rounded-2xl border border-white/10 bg-white object-contain transition-transform duration-300 group-hover/image:scale-[1.01]"
+                    loading="lazy"
+                  />
+                </button>
               ) : (
                 <div class="aspect-[4/3] rounded-2xl border border-white/10 bg-white/[0.04] grid place-items-center">
                   <span class="text-xs uppercase tracking-[0.22em] text-white/40">Pantalla 02</span>
@@ -97,5 +104,74 @@ const [mainImage, secondImage, thirdImage] = project.images ?? [];
         </article>
       </div>
     </section>
+
+    {
+      galleryImages.length > 0 && (
+        <div id="project-gallery-modal" class="fixed inset-0 z-50 hidden bg-black/90 p-4 sm:p-8" aria-hidden="true">
+          <button type="button" data-gallery-close class="absolute right-4 top-4 z-10 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur transition-colors hover:bg-white/20">
+            Cerrar
+          </button>
+          <button type="button" data-gallery-prev class="absolute left-3 top-1/2 z-10 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-white/10 text-3xl text-white backdrop-blur transition-colors hover:bg-white/20 sm:left-6" aria-label="Imagen anterior">
+            ‹
+          </button>
+          <img id="project-gallery-image" src={galleryImages[0]} alt={`${project.title} ampliado`} class="mx-auto h-full max-h-[86vh] w-full max-w-6xl object-contain" />
+          <button type="button" data-gallery-next class="absolute right-3 top-1/2 z-10 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-white/10 text-3xl text-white backdrop-blur transition-colors hover:bg-white/20 sm:right-6" aria-label="Imagen siguiente">
+            ›
+          </button>
+        </div>
+      )
+    }
   </main>
+
+  <script define:vars={{ galleryImages }}>
+    const modal = document.getElementById("project-gallery-modal");
+    const image = document.getElementById("project-gallery-image");
+    const openButtons = document.querySelectorAll("[data-gallery-open]");
+    const closeButton = document.querySelector("[data-gallery-close]");
+    const previousButton = document.querySelector("[data-gallery-prev]");
+    const nextButton = document.querySelector("[data-gallery-next]");
+    let currentIndex = 0;
+
+    const showImage = (index) => {
+      if (!image || galleryImages.length === 0) return;
+      currentIndex = (index + galleryImages.length) % galleryImages.length;
+      image.setAttribute("src", galleryImages[currentIndex]);
+    };
+
+    const openGallery = (index) => {
+      if (!modal) return;
+      showImage(index);
+      modal.classList.remove("hidden");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeGallery = () => {
+      if (!modal) return;
+      modal.classList.add("hidden");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    openButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        openGallery(Number(button.getAttribute("data-gallery-index") ?? 0));
+      });
+    });
+
+    closeButton?.addEventListener("click", closeGallery);
+    previousButton?.addEventListener("click", () => showImage(currentIndex - 1));
+    nextButton?.addEventListener("click", () => showImage(currentIndex + 1));
+
+    modal?.addEventListener("click", (event) => {
+      if (event.target === modal) closeGallery();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!modal || modal.classList.contains("hidden")) return;
+      if (event.key === "Escape") closeGallery();
+      if (event.key === "ArrowLeft") showImage(currentIndex - 1);
+      if (event.key === "ArrowRight") showImage(currentIndex + 1);
+    });
+  </script>
 </Layout>
